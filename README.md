@@ -26,6 +26,44 @@ Projet réalisé dans le cadre de l'Atelier 5 : Full Stack MEAN Stack - ISET Biz
 | HttpClient | Communication Angular / API |
 | Bootstrap | Mise en forme |
 
+## Comprendre le MEAN Stack
+
+MEAN est le nom d'un ensemble de 4 technologies JavaScript qui travaillent ensemble pour construire une application web complète :
+
+- **M**ongoDB : la base de données, qui stocke les informations.
+- **E**xpress.js : un framework qui crée le serveur et les routes de l'API.
+- **A**ngular : le framework qui construit ce que l'utilisateur voit dans son navigateur.
+- **N**ode.js : l'environnement qui exécute JavaScript côté serveur.
+
+Avantage principal : un seul langage (JavaScript / TypeScript) pour toute l'application, du navigateur jusqu'à la base de données.
+
+### Comment les 4 parties communiquent
+
+Exemple avec le bouton « Publier une annonce » :
+
+1. L'utilisateur remplit le formulaire dans **Angular** et clique sur « Publier ».
+2. Angular envoie les données au serveur avec une requête HTTP POST (service `AnnonceService` et `HttpClient`).
+3. **Express** (qui tourne sur **Node.js**) reçoit la requête sur la route `/api/annonces`.
+4. **Mongoose** vérifie les données (titre, prix, etc.) puis les enregistre dans **MongoDB**.
+5. Le serveur répond en JSON, et Angular met à jour l'affichage.
+
+### Front-End et Back-End
+
+- Le **Front-End** (Angular) est la partie visible : pages, formulaires, boutons.
+- Le **Back-End** (Node.js, Express, MongoDB) est la partie cachée : elle traite les demandes, applique les règles et gère les données.
+- Les deux communiquent par une **API REST**, qui est un ensemble de routes (GET, POST, PUT, DELETE) échangeant du JSON.
+
+### Le CRUD
+
+Toute l'application repose sur 4 opérations de base, appelées CRUD :
+
+| Opération | Méthode HTTP | Exemple dans le projet |
+|---|---|---|
+| Create (créer) | POST | Publier une annonce |
+| Read (lire) | GET | Afficher les annonces |
+| Update (modifier) | PUT | Modifier le prix |
+| Delete (supprimer) | DELETE | Supprimer une annonce |
+
 ## Architecture
 
 ```
